@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request, request, jsonify
 import json
 import sqlite3
+"""
 from google import genai
 from google.genai import types
 from PIL import Image
@@ -8,6 +9,7 @@ from io import BytesIO
 import os
 from dotenv import load_dotenv
 load_dotenv()
+"""
 
 
 app = Flask(__name__)
@@ -61,7 +63,8 @@ def receive_tags():
     # 質問内容　後で食材のところは変数に変更
     response = client.models.generate_images(
     model='imagen-3.0-generate-002',
-    prompt="""Please make a image of a black pot with {ingredients}.""",
+    prompt="""#Please make a image of a black pot with {ingredients}.""",
+"""
     config=types.GenerateImagesConfig(
         number_of_images= 1,
     )
