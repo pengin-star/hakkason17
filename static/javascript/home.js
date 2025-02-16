@@ -6,6 +6,7 @@ document.getElementById('submitButton').addEventListener('click', function () {
         // 新しい要素を作成
         const newItem = document.createElement('div');
         newItem.textContent = inputField.value;
+        newItem.classList.add('new-item');
 
         // 削除ボタンを作成
         const deleteBtn = document.createElement('span');
@@ -29,11 +30,14 @@ document.getElementById('submitButton').addEventListener('click', function () {
 
         // 調理ボタンの機能
         cooking.addEventListener('click', function () {
+        // 全てのnewItemの内容を取得
+        const items = document.querySelectorAll('.new-item');
+        const dishList = Array.from(items).map(item => item.textContent.trim());
         // Pythonにデータを送信
 　　　　　　　　fetch('/receive_tags/', {
     　　　　　　　　method: 'POST',
     　　　　　　　　headers: { 'Content-Type': 'application/json' },
-    　　　　　　　　body: JSON.stringify({ message: newItem.textContent })
+    　　　　　　　　body: JSON.stringify({ message: dishList })
 　　　　　　　　})
 　　　　　　　　.then(response => response.json())
 　　　　　　　　.then(data => {
