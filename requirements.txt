@@ -1,2 +1,4 @@
 Flask
+google_api
+PIL
 python-dotenv
