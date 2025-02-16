@@ -1,1 +1,9 @@
 Flask
+json
+sqlite3
+google
+google.genai
+PIL
+io
+os
+dotenv
