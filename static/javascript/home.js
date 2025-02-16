@@ -33,7 +33,7 @@ document.getElementById('submitButton').addEventListener('click', function () {
 　　　　　　　　fetch('/receive_tags/', {
     　　　　　　　　method: 'POST',
     　　　　　　　　headers: { 'Content-Type': 'application/json' },
-    　　　　　　　　body: JSON.stringify({ message: inputField.value })
+    　　　　　　　　body: JSON.stringify({ message: newItem.textContent })
 　　　　　　　　})
 　　　　　　　　.then(response => response.json())
 　　　　　　　　.then(data => {
