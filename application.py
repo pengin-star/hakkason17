@@ -1,12 +1,14 @@
 from flask import Flask,render_template,request, request, jsonify
 import json
 import sqlite3
-from google import genai
-from google.genai import types
+#from google import genai
+#from google.genai import types
 from PIL import Image
 from io import BytesIO
 import os
 from dotenv import load_dotenv
+load_dotenv()
+
 
 app = Flask(__name__)
 
@@ -21,13 +23,7 @@ def home_page():
 def next_page():
     return render_template("next.html")
 
-## 実行
-if __name__ == "__main__":
-    app.run(debug=True)
 
-
-
-load_dotenv()
 
 
 # タグを受け取るエンドポイント
@@ -74,4 +70,6 @@ def receive_tags():
     for generated_image in response.generated_images:
         image = Image.open(BytesIO(generated_image.image.image_bytes))
         
-    
+## 実行
+if __name__ == "__main__":
+    app.run(debug=True)
