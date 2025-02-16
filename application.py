@@ -1,8 +1,8 @@
 from flask import Flask,render_template,request, request, jsonify
 import json
 import sqlite3
-#from google import genai
-#from google.genai import types
+from google import genai
+from google.genai import types
 from PIL import Image
 from io import BytesIO
 import os
@@ -25,7 +25,7 @@ def next_page():
 
 
 
-
+"""
 # タグを受け取るエンドポイント
 @app.route('/receive_tags/', methods=['GET', 'POST'])
 def receive_tags():
@@ -69,7 +69,7 @@ def receive_tags():
 
     for generated_image in response.generated_images:
         image = Image.open(BytesIO(generated_image.image.image_bytes))
-        
+"""
 ## 実行
 if __name__ == "__main__":
     app.run(debug=True)
