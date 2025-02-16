@@ -1,7 +1,3 @@
 Flask
-google
-google.genai
-PIL
-io
-os
-dotenv
+json
+sqlite3
